@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PinBoardHandler.h"
-#import "ShowMoreCollectionViewCell.h"
 
-@interface ViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,PinBoardHandlerDelegate>
+
+@interface ViewController : UIViewController
 
 
 @end

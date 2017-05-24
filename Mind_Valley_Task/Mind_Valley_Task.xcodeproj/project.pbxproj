@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A2B07661ED5974700606953 /* BoardHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2B07651ED5974700606953 /* BoardHandler.m */; };
+		3A2B07691ED597A400606953 /* PinBoardOnDemandHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2B07681ED597A400606953 /* PinBoardOnDemandHandler.m */; };
+		3A2B076D1ED5A8D400606953 /* OnDemandCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2B076B1ED5A8D400606953 /* OnDemandCollectionViewCell.m */; };
+		3A2B076E1ED5A8D400606953 /* OnDemandCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2B076C1ED5A8D400606953 /* OnDemandCollectionViewCell.xib */; };
 		3A302B9A1ED2B24B0088F7EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A302B991ED2B24B0088F7EE /* main.m */; };
 		3A302B9D1ED2B24B0088F7EE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A302B9C1ED2B24B0088F7EE /* AppDelegate.m */; };
 		3A302BA01ED2B24B0088F7EE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A302B9F1ED2B24B0088F7EE /* ViewController.m */; };
@@ -20,16 +24,11 @@
 		3A302BD91ED2D19C0088F7EE /* APIService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A302BD81ED2D19C0088F7EE /* APIService.m */; };
 		3A302BDD1ED2DF2D0088F7EE /* PinBoardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A302BDC1ED2DF2D0088F7EE /* PinBoardModel.m */; };
 		3A302BE11ED2E7F20088F7EE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A302BE01ED2E7F20088F7EE /* MBProgressHUD.m */; };
-		3A7BB5491ED4BAFD00796AAD /* PinBoardHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BB5481ED4BAFD00796AAD /* PinBoardHandler.m */; };
+		3A7BB5491ED4BAFD00796AAD /* PinBoardDefaultHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BB5481ED4BAFD00796AAD /* PinBoardDefaultHandler.m */; };
 		3A7BB54D1ED4CCE300796AAD /* ShowMoreCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BB54B1ED4CCE300796AAD /* ShowMoreCollectionViewCell.m */; };
 		3A7BB54E1ED4CCE300796AAD /* ShowMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A7BB54C1ED4CCE300796AAD /* ShowMoreCollectionViewCell.xib */; };
+		3A9E70F71ED5FB00001A8338 /* PinBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9E70F61ED5FB00001A8338 /* PinBoardViewController.m */; };
 		3AAEBE1E1ED3FE1B0072E403 /* CacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AAEBE1D1ED3FE1B0072E403 /* CacheManager.m */; };
-		3AAEBE231ED427730072E403 /* six.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AAEBE221ED427730072E403 /* six.png */; };
-		3AAEBE251ED427970072E403 /* five.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AAEBE241ED427970072E403 /* five.png */; };
-		3AAEBE271ED427B90072E403 /* four.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AAEBE261ED427B90072E403 /* four.png */; };
-		3AAEBE291ED427CD0072E403 /* three.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AAEBE281ED427CD0072E403 /* three.png */; };
-		3AAEBE2B1ED4280C0072E403 /* two.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AAEBE2A1ED4280C0072E403 /* two.png */; };
-		3AAEBE2D1ED4281B0072E403 /* one.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AAEBE2C1ED4281B0072E403 /* one.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +49,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A2B07641ED5974700606953 /* BoardHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardHandler.h; sourceTree = "<group>"; };
+		3A2B07651ED5974700606953 /* BoardHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardHandler.m; sourceTree = "<group>"; };
+		3A2B07671ED597A400606953 /* PinBoardOnDemandHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinBoardOnDemandHandler.h; sourceTree = "<group>"; };
+		3A2B07681ED597A400606953 /* PinBoardOnDemandHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinBoardOnDemandHandler.m; sourceTree = "<group>"; };
+		3A2B076A1ED5A8D400606953 /* OnDemandCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnDemandCollectionViewCell.h; sourceTree = "<group>"; };
+		3A2B076B1ED5A8D400606953 /* OnDemandCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnDemandCollectionViewCell.m; sourceTree = "<group>"; };
+		3A2B076C1ED5A8D400606953 /* OnDemandCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnDemandCollectionViewCell.xib; sourceTree = "<group>"; };
 		3A302B951ED2B24B0088F7EE /* Mind_Valley_Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mind_Valley_Task.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A302B991ED2B24B0088F7EE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A302B9B1ED2B24B0088F7EE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -76,21 +82,17 @@
 		3A302BDC1ED2DF2D0088F7EE /* PinBoardModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinBoardModel.m; sourceTree = "<group>"; };
 		3A302BDF1ED2E7F20088F7EE /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		3A302BE01ED2E7F20088F7EE /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		3A7BB5471ED4BAFD00796AAD /* PinBoardHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinBoardHandler.h; sourceTree = "<group>"; };
-		3A7BB5481ED4BAFD00796AAD /* PinBoardHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinBoardHandler.m; sourceTree = "<group>"; };
+		3A7BB5471ED4BAFD00796AAD /* PinBoardDefaultHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinBoardDefaultHandler.h; sourceTree = "<group>"; };
+		3A7BB5481ED4BAFD00796AAD /* PinBoardDefaultHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinBoardDefaultHandler.m; sourceTree = "<group>"; };
 		3A7BB54A1ED4CCE300796AAD /* ShowMoreCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowMoreCollectionViewCell.h; sourceTree = "<group>"; };
 		3A7BB54B1ED4CCE300796AAD /* ShowMoreCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowMoreCollectionViewCell.m; sourceTree = "<group>"; };
 		3A7BB54C1ED4CCE300796AAD /* ShowMoreCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowMoreCollectionViewCell.xib; sourceTree = "<group>"; };
 		3A93CE7C1ED548EC00B6D739 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3A93CE7D1ED5496600B6D739 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		3A9E70F51ED5FB00001A8338 /* PinBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinBoardViewController.h; sourceTree = "<group>"; };
+		3A9E70F61ED5FB00001A8338 /* PinBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinBoardViewController.m; sourceTree = "<group>"; };
 		3AAEBE1C1ED3FE1B0072E403 /* CacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheManager.h; sourceTree = "<group>"; };
 		3AAEBE1D1ED3FE1B0072E403 /* CacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheManager.m; sourceTree = "<group>"; };
-		3AAEBE221ED427730072E403 /* six.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = six.png; sourceTree = "<group>"; };
-		3AAEBE241ED427970072E403 /* five.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = five.png; sourceTree = "<group>"; };
-		3AAEBE261ED427B90072E403 /* four.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = four.png; sourceTree = "<group>"; };
-		3AAEBE281ED427CD0072E403 /* three.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = three.png; sourceTree = "<group>"; };
-		3AAEBE2A1ED4280C0072E403 /* two.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = two.png; sourceTree = "<group>"; };
-		3AAEBE2C1ED4281B0072E403 /* one.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = one.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,13 +143,8 @@
 		3A302B971ED2B24B0088F7EE /* Mind_Valley_Task */ = {
 			isa = PBXGroup;
 			children = (
+				3A9E70F41ED5FAEB001A8338 /* Controller */,
 				3A7BB5461ED4BAE200796AAD /* Handler */,
-				3AAEBE2C1ED4281B0072E403 /* one.png */,
-				3AAEBE2A1ED4280C0072E403 /* two.png */,
-				3AAEBE281ED427CD0072E403 /* three.png */,
-				3AAEBE261ED427B90072E403 /* four.png */,
-				3AAEBE241ED427970072E403 /* five.png */,
-				3AAEBE221ED427730072E403 /* six.png */,
 				3AAEBE1B1ED3FE060072E403 /* Cache Mechanism */,
 				3A302BDE1ED2E7E60088F7EE /* Library */,
 				3A302BDA1ED2DF140088F7EE /* Model */,
@@ -211,6 +208,9 @@
 				3A7BB54A1ED4CCE300796AAD /* ShowMoreCollectionViewCell.h */,
 				3A7BB54B1ED4CCE300796AAD /* ShowMoreCollectionViewCell.m */,
 				3A7BB54C1ED4CCE300796AAD /* ShowMoreCollectionViewCell.xib */,
+				3A2B076A1ED5A8D400606953 /* OnDemandCollectionViewCell.h */,
+				3A2B076B1ED5A8D400606953 /* OnDemandCollectionViewCell.m */,
+				3A2B076C1ED5A8D400606953 /* OnDemandCollectionViewCell.xib */,
 			);
 			name = CustomCell;
 			sourceTree = "<group>";
@@ -254,10 +254,23 @@
 		3A7BB5461ED4BAE200796AAD /* Handler */ = {
 			isa = PBXGroup;
 			children = (
-				3A7BB5471ED4BAFD00796AAD /* PinBoardHandler.h */,
-				3A7BB5481ED4BAFD00796AAD /* PinBoardHandler.m */,
+				3A7BB5471ED4BAFD00796AAD /* PinBoardDefaultHandler.h */,
+				3A7BB5481ED4BAFD00796AAD /* PinBoardDefaultHandler.m */,
+				3A2B07641ED5974700606953 /* BoardHandler.h */,
+				3A2B07651ED5974700606953 /* BoardHandler.m */,
+				3A2B07671ED597A400606953 /* PinBoardOnDemandHandler.h */,
+				3A2B07681ED597A400606953 /* PinBoardOnDemandHandler.m */,
 			);
 			name = Handler;
+			sourceTree = "<group>";
+		};
+		3A9E70F41ED5FAEB001A8338 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3A9E70F51ED5FB00001A8338 /* PinBoardViewController.h */,
+				3A9E70F61ED5FB00001A8338 /* PinBoardViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		3AAEBE1B1ED3FE060072E403 /* Cache Mechanism */ = {
@@ -375,15 +388,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AAEBE2D1ED4281B0072E403 /* one.png in Resources */,
 				3A302BA81ED2B24B0088F7EE /* LaunchScreen.storyboard in Resources */,
 				3A7BB54E1ED4CCE300796AAD /* ShowMoreCollectionViewCell.xib in Resources */,
 				3A302BA51ED2B24B0088F7EE /* Assets.xcassets in Resources */,
-				3AAEBE231ED427730072E403 /* six.png in Resources */,
-				3AAEBE2B1ED4280C0072E403 /* two.png in Resources */,
-				3AAEBE251ED427970072E403 /* five.png in Resources */,
-				3AAEBE291ED427CD0072E403 /* three.png in Resources */,
-				3AAEBE271ED427B90072E403 /* four.png in Resources */,
+				3A2B076E1ED5A8D400606953 /* OnDemandCollectionViewCell.xib in Resources */,
 				3A302BA31ED2B24B0088F7EE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,10 +423,14 @@
 				3A302BCF1ED2BBC50088F7EE /* PinboardCollectionViewCell.m in Sources */,
 				3A302B9D1ED2B24B0088F7EE /* AppDelegate.m in Sources */,
 				3AAEBE1E1ED3FE1B0072E403 /* CacheManager.m in Sources */,
+				3A9E70F71ED5FB00001A8338 /* PinBoardViewController.m in Sources */,
 				3A302B9A1ED2B24B0088F7EE /* main.m in Sources */,
+				3A2B07661ED5974700606953 /* BoardHandler.m in Sources */,
 				3A302BDD1ED2DF2D0088F7EE /* PinBoardModel.m in Sources */,
-				3A7BB5491ED4BAFD00796AAD /* PinBoardHandler.m in Sources */,
+				3A7BB5491ED4BAFD00796AAD /* PinBoardDefaultHandler.m in Sources */,
 				3A302BD51ED2CDED0088F7EE /* NetworkHandler.m in Sources */,
+				3A2B07691ED597A400606953 /* PinBoardOnDemandHandler.m in Sources */,
+				3A2B076D1ED5A8D400606953 /* OnDemandCollectionViewCell.m in Sources */,
 				3A302BE11ED2E7F20088F7EE /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

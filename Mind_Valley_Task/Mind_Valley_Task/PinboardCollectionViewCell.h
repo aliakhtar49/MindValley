@@ -12,4 +12,5 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *pinBoardImageView;
 @property (weak, nonatomic) IBOutlet UILabel *pinBoardLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end

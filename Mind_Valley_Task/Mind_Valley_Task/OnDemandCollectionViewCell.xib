@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OnDemandCollectionViewCell" id="Wxj-rU-CUO" customClass="OnDemandCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEp-1S-6fI">
+                        <rect key="frame" x="109" y="8" width="33" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="abd-JG-ZEw"/>
+                            <constraint firstAttribute="width" constant="33" id="ko3-TN-HSG"/>
+                        </constraints>
+                        <state key="normal" image="download"/>
+                        <connections>
+                            <action selector="actionButtonTapped:" destination="Wxj-rU-CUO" eventType="touchUpInside" id="Y4U-mC-a11"/>
+                        </connections>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IrL-h9-dub">
+                        <rect key="frame" x="8" y="8" width="134" height="134"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrH-FI-OW5">
+                        <rect key="frame" x="8" y="125" width="134" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="akN-hy-2aH">
+                        <rect key="frame" x="109" y="7" width="33" height="36"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hEd-Hl-xIe">
+                        <rect key="frame" x="65" y="65" width="20" height="20"/>
+                    </activityIndicatorView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="IrL-h9-dub" firstAttribute="leading" secondItem="Wxj-rU-CUO" secondAttribute="leadingMargin" id="0nj-6c-6gJ"/>
+                <constraint firstItem="yrH-FI-OW5" firstAttribute="leading" secondItem="Wxj-rU-CUO" secondAttribute="leadingMargin" id="47V-5F-AxH"/>
+                <constraint firstItem="hEd-Hl-xIe" firstAttribute="centerY" secondItem="Wxj-rU-CUO" secondAttribute="centerY" id="8M4-tf-DJM"/>
+                <constraint firstAttribute="bottomMargin" secondItem="IrL-h9-dub" secondAttribute="bottom" id="EHw-Dt-a9a"/>
+                <constraint firstItem="yrH-FI-OW5" firstAttribute="top" secondItem="aEp-1S-6fI" secondAttribute="bottom" constant="82" id="Lln-eI-R8d"/>
+                <constraint firstItem="hEd-Hl-xIe" firstAttribute="centerX" secondItem="Wxj-rU-CUO" secondAttribute="centerX" id="RFm-ol-r7x"/>
+                <constraint firstAttribute="trailing" secondItem="aEp-1S-6fI" secondAttribute="trailing" constant="8" id="Ymg-9c-mrT"/>
+                <constraint firstAttribute="bottomMargin" secondItem="yrH-FI-OW5" secondAttribute="bottom" id="dcL-QL-xTB"/>
+                <constraint firstAttribute="trailingMargin" secondItem="IrL-h9-dub" secondAttribute="trailing" id="nGX-HU-yNJ"/>
+                <constraint firstItem="aEp-1S-6fI" firstAttribute="top" secondItem="Wxj-rU-CUO" secondAttribute="top" constant="8" id="pFK-D4-qLN"/>
+                <constraint firstAttribute="trailingMargin" secondItem="yrH-FI-OW5" secondAttribute="trailing" id="s6K-bU-dCd"/>
+                <constraint firstAttribute="topMargin" secondItem="IrL-h9-dub" secondAttribute="top" id="y8T-6m-xsM"/>
+            </constraints>
+            <size key="customSize" width="150" height="150"/>
+            <connections>
+                <outlet property="activityIndicator" destination="hEd-Hl-xIe" id="rtR-gK-Hc3"/>
+                <outlet property="pinBoardImageView" destination="IrL-h9-dub" id="RAv-hY-hie"/>
+                <outlet property="pinBoardLabel" destination="yrH-FI-OW5" id="6OA-7T-oZy"/>
+                <outlet property="progreeImageView" destination="akN-hy-2aH" id="JiK-KC-r4G"/>
+            </connections>
+            <point key="canvasLocation" x="55" y="127"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="download" width="96" height="96"/>
+    </resources>
+</document>
