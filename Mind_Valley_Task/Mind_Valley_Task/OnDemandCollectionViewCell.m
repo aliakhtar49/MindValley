@@ -15,6 +15,35 @@
     // Initialization code
 }
 
+- (void)hideDownloadAndCancelButton:(int)imageRecordState {
+    
+    switch (imageRecordState) {
+        case New:
+            self.cancelButton.hidden = YES;
+            self.actionButton.hidden = NO;
+            self.activityIndicator.hidden = YES;
+            break;
+        case Downloaded:
+            self.cancelButton.hidden = YES;
+            self.actionButton.hidden = YES;
+            self.activityIndicator.hidden = YES;
+            break;
+        case InProgress:
+            self.cancelButton.hidden = NO;
+            self.actionButton.hidden = YES;
+            self.activityIndicator.hidden = NO;
+            [self startAnimation];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (IBAction)cancelButtonTapped:(id)sender {
+    [self.delegate cancelButtonTapped:sender];
+}
+
 - (IBAction)actionButtonTapped:(id)sender {
     
     [self.delegate actionButtonTapped:sender];

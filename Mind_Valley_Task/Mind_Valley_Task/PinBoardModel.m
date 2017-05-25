@@ -8,6 +8,7 @@
 
 #import "PinBoardModel.h"
 
+
 @implementation PinBoardModel
 
 
@@ -18,6 +19,7 @@
         
         self.userName = name;
         self.userId = userId;
+        self.imageRecordState = New;
         self.userProfileImageUrl = imageUrl;
         
     }
@@ -45,3 +47,54 @@
 }
 
 @end
+
+
+
+
+@implementation ImageDownloader
+
+-(instancetype)initWith:(PinBoardModel*)imageRecord with:(CacheManager*)cacheManger
+{
+    self = [super init];
+    if (self) {
+        self.photoRecord = imageRecord ;
+        self.cacheManager = cacheManger ;
+    }
+    return self;
+}
+- (void)main {
+    
+   
+    [NSThread sleepForTimeInterval:10.0];
+    
+    
+    if(self.cancelled) {
+        return;
+    }
+    
+    NSData* imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.photoRecord.userProfileImageUrl]] ;
+    
+    //6
+    if (self.isCancelled) {
+        
+        return ;
+        
+    }
+    
+    //7
+    if (imageData.length > 0 ){
+        
+        
+       // self.photoRecord.image = [UIImage imageWithData:imageData];
+        
+        [self.cacheManager setCacheImage:[UIImage imageWithData:imageData] forKey:self.photoRecord.userProfileImageUrl];
+        self.photoRecord.imageRecordState = Downloaded ;
+    }
+    else
+    {
+        self.photoRecord.imageRecordState = Failed ;
+        //self.photoRecord.image = [UIImage imageNamed:@"Failed"];
+    }
+    
+}
+@end;

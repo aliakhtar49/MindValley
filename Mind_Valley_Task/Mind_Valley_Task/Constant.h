@@ -21,5 +21,17 @@ typedef NS_ENUM(NSInteger, API_TYPE) {
 };
 
 
+typedef NS_ENUM(NSInteger, ImageRecordState) {
+    
+    New   = 1,
+    
+    Downloaded  = 2,
+    Failed = 3,
+    InProgress  = 4 ,
+    Cancel
+    
+};
+
+
 #define AS @"Dd"
 #endif /* Constant_h */

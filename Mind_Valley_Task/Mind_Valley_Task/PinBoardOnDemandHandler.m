@@ -13,8 +13,19 @@
 #import <QuartzCore/QuartzCore.h>
 #import "NetworkHandler.h"
 #import "APIService.h"
+#import "PendingOperations.h"
 #import "ShowMoreCollectionViewCell.h"
 
+#define CANCEL_STATE 1
+#define DOWNLOAD_STATE 0
+
+@interface PinBoardOnDemandHandler (){
+    
+}
+
+@property(nonatomic,strong) PendingOperations* pendingOperations;
+
+@end
 
 @implementation PinBoardOnDemandHandler
 
@@ -23,7 +34,7 @@
 {
     self = [super init];
     if (self) {
-        
+        self.pendingOperations = [[PendingOperations alloc] init];
         self.cacheManager = [[CacheManager alloc] initWithMaxCapacity:CACHE_SIZE_LIMIT];
         currentCount = -1 ;
         self.pinBoardWallObjects = [[NSMutableArray alloc] init];
@@ -45,12 +56,16 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    /*Show load more view cell*/
     if (self.showLoader) {
-        return (int)self.pinBoardWallObjects.count + 1 ;}
+        
+        return (int)self.pinBoardWallObjects.count + 1 ;
+    }
     else{
         return (int)self.pinBoardWallObjects.count;
     }
 }
+
 - (void)collectionView:(UICollectionView *)collectionView
        willDisplayCell:(UICollectionViewCell *)cell
     forItemAtIndexPath:(nonnull NSIndexPath *)indexPath{
@@ -60,11 +75,10 @@
         
         self.showLoader = YES;
         
-        
-        
         [self.delegate reloadCollectionView];
         
         self.apiType = SHOW_MORE ;
+        
         [self fetchPinBoardDetailsFromServer:self.apiType];
     }
     
@@ -74,73 +88,118 @@
     
     if(indexPath.row == self.pinBoardWallObjects.count ) {
         ShowMoreCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ShowMoreCollectionViewCell class]) forIndexPath:indexPath];
-        // [cell setBackgroundColor:[UIColor greenColor]];
+       
         [cell animateLoader];
+        
         return cell;
     }
     
-    
-    OnDemandCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([OnDemandCollectionViewCell class]) forIndexPath:indexPath];
-    [cell.pinBoardLabel setText:[(PinBoardModel*)[self.pinBoardWallObjects objectAtIndex:indexPath.row] userName]];
-    cell.delegate = self ;
-    
-    
-    NSString* imageUrl = [(PinBoardModel*)[self.pinBoardWallObjects objectAtIndex:indexPath.row] userProfileImageUrl] ;
-    
-    if(![self.cacheManager getCachedImageForKey:imageUrl]) {
-        
-        cell.pinBoardImageView.image = [UIImage imageNamed:@""];
-    }
     else {
         
-        [self showImage: [self.cacheManager getCachedImageForKey:imageUrl] withAnimation:cell.pinBoardImageView];
+        OnDemandCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([OnDemandCollectionViewCell class]) forIndexPath:indexPath];
+        [cell.pinBoardLabel setText:[(PinBoardModel*)[self.pinBoardWallObjects objectAtIndex:indexPath.row] userName]];
+        cell.delegate = self ;
         
+        
+        NSString* imageUrl = [(PinBoardModel*)[self.pinBoardWallObjects objectAtIndex:indexPath.row] userProfileImageUrl] ;
+        
+       [cell hideDownloadAndCancelButton:[(PinBoardModel*)[self.pinBoardWallObjects objectAtIndex:indexPath.row] imageRecordState]];
+        
+
+        if(![self.cacheManager getCachedImageForKey:imageUrl]) {
+            
+            cell.pinBoardImageView.image = nil;
+            
+            
+        }
+        else {
+            
+            
+            cell.pinBoardImageView.image = [self.cacheManager getCachedImageForKey:imageUrl]  ;
+            
+            
+          
+            
+        }
+        
+         return cell;
     }
     
-    
-    
-    return cell;
+  
+   
 }
 
--(void)actionButtonTapped:(id)sender {
+
+- (void)cancelButtonTapped:(id)sender {
     
     UIButton *button = (UIButton *) sender;
-    
     
     OnDemandCollectionViewCell *cell = (OnDemandCollectionViewCell *)[[button superview] superview];
     
     NSIndexPath *indexPath = [[self.delegate getUICollectionView] indexPathForCell:cell];
     
-    NSString* imageUrl = [(PinBoardModel*)[self.pinBoardWallObjects objectAtIndex:indexPath.row] userProfileImageUrl] ;
+    ImageDownloader* pendingDownload = [self.pendingOperations.downloadsInProgress objectForKey:indexPath];
+    [pendingDownload cancel];
     
-    if(![self.cacheManager getCachedImageForKey:imageUrl]) {
-        
-        [cell startAnimation];
-        NetworkHandler* networkHandler = [[NetworkHandler alloc] init];
-        [networkHandler loadAsync:imageUrl andSucess:^(NSData *responseData) {
-            
-            [cell stopAnimation];
-            UIImage* pinBoardImage = [[UIImage alloc] initWithData:responseData] ;
-            
-            [self.cacheManager setCacheImage:pinBoardImage forKey:imageUrl];
-            [self showImage:pinBoardImage withAnimation:cell.pinBoardImageView];
-            
-            
-            
-            // cell.pinBoardImageView.image = pinBoardImage ;
-            
-        } AndFailure:^(NSError *error) {
-            
-            [cell stopAnimation] ;
-            
-        }];
-        
+}
+-(void)actionButtonTapped:(id)sender {
+    
+    UIButton *button = (UIButton *) sender;
+    
+    OnDemandCollectionViewCell *cell = (OnDemandCollectionViewCell *)[[button superview] superview];
+    
+    
+    
+    
+    
+    NSIndexPath *indexPath = [[self.delegate getUICollectionView] indexPathForCell:cell];
+    
+    
+   
+    PinBoardModel* pinBoardModel =    (PinBoardModel*)[self.pinBoardWallObjects objectAtIndex:indexPath.row];
+    
+    
+    //1
+    if([[self.pendingOperations.downloadsInProgress allKeys] containsObject:indexPath]){
+        return;
     }
-    else {
+    
+    pinBoardModel.imageRecordState = InProgress ;
+    
+    [cell hideDownloadAndCancelButton:[(PinBoardModel*)[self.pinBoardWallObjects objectAtIndex:indexPath.row] imageRecordState]];
+    //2
+    ImageDownloader* downloader = [[ImageDownloader alloc] initWith:pinBoardModel with:self.cacheManager];
+    
+    
+    __weak ImageDownloader *downloaderObject = downloader;
+    [downloader setCompletionBlock:^{
         
-        [self showImage: [self.cacheManager getCachedImageForKey:imageUrl] withAnimation:cell.pinBoardImageView];
+        if(downloaderObject.isCancelled)  {
+            [self.pendingOperations.downloadsInProgress removeObjectForKey:indexPath];
+            pinBoardModel.imageRecordState = New;
+            [cell hideDownloadAndCancelButton:[(PinBoardModel*)[self.pinBoardWallObjects objectAtIndex:indexPath.row] imageRecordState]];
+            
+            return ;
+        }
         
-    }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.pendingOperations.downloadsInProgress removeObjectForKey:indexPath];
+            
+            pinBoardModel.imageRecordState = DOWNLOAD_STATE;
+            [[self.delegate getUICollectionView] reloadData];
+            
+        });
+        
+    }] ;
+    
+    //4
+    [self.pendingOperations.downloadsInProgress setObject:downloader forKey:indexPath];
+    
+    //5
+    [self.pendingOperations.downloadQueue addOperation:downloader];
+    //[downloader cancel];
+
+
 }
 
 
@@ -165,5 +224,7 @@
 {
     [self.cacheManager removeAllCachedImages];
 }
+
+
 
 @end

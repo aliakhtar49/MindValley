@@ -19,13 +19,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEp-1S-6fI">
+                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEp-1S-6fI">
                         <rect key="frame" x="109" y="8" width="33" height="35"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="abd-JG-ZEw"/>
                             <constraint firstAttribute="width" constant="33" id="ko3-TN-HSG"/>
                         </constraints>
                         <state key="normal" image="download"/>
+                        <state key="selected" image="cancel"/>
                         <connections>
                             <action selector="actionButtonTapped:" destination="Wxj-rU-CUO" eventType="touchUpInside" id="Y4U-mC-a11"/>
                         </connections>
@@ -40,13 +41,23 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="akN-hy-2aH">
-                        <rect key="frame" x="109" y="7" width="33" height="36"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
-                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hEd-Hl-xIe">
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hEd-Hl-xIe">
                         <rect key="frame" x="65" y="65" width="20" height="20"/>
                     </activityIndicatorView>
+                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZl-Dm-Jt4">
+                        <rect key="frame" x="8" y="8" width="33" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="05b-3g-8S6"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="33" id="LCk-y8-Nno"/>
+                            <constraint firstAttribute="width" constant="33" id="S8i-re-rSt"/>
+                            <constraint firstAttribute="height" constant="35" id="jp3-iY-wgT"/>
+                        </constraints>
+                        <state key="normal" image="cancel"/>
+                        <state key="selected" image="cancel"/>
+                        <connections>
+                            <action selector="cancelButtonTapped:" destination="Wxj-rU-CUO" eventType="touchUpInside" id="Q78-B0-9Qi"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <constraints>
@@ -54,10 +65,12 @@
                 <constraint firstItem="yrH-FI-OW5" firstAttribute="leading" secondItem="Wxj-rU-CUO" secondAttribute="leadingMargin" id="47V-5F-AxH"/>
                 <constraint firstItem="hEd-Hl-xIe" firstAttribute="centerY" secondItem="Wxj-rU-CUO" secondAttribute="centerY" id="8M4-tf-DJM"/>
                 <constraint firstAttribute="bottomMargin" secondItem="IrL-h9-dub" secondAttribute="bottom" id="EHw-Dt-a9a"/>
+                <constraint firstItem="DZl-Dm-Jt4" firstAttribute="top" secondItem="Wxj-rU-CUO" secondAttribute="top" constant="8" id="HAO-bK-D2f"/>
                 <constraint firstItem="yrH-FI-OW5" firstAttribute="top" secondItem="aEp-1S-6fI" secondAttribute="bottom" constant="82" id="Lln-eI-R8d"/>
                 <constraint firstItem="hEd-Hl-xIe" firstAttribute="centerX" secondItem="Wxj-rU-CUO" secondAttribute="centerX" id="RFm-ol-r7x"/>
                 <constraint firstAttribute="trailing" secondItem="aEp-1S-6fI" secondAttribute="trailing" constant="8" id="Ymg-9c-mrT"/>
                 <constraint firstAttribute="bottomMargin" secondItem="yrH-FI-OW5" secondAttribute="bottom" id="dcL-QL-xTB"/>
+                <constraint firstItem="DZl-Dm-Jt4" firstAttribute="leading" secondItem="Wxj-rU-CUO" secondAttribute="leading" constant="8" id="iP3-vN-Gpn"/>
                 <constraint firstAttribute="trailingMargin" secondItem="IrL-h9-dub" secondAttribute="trailing" id="nGX-HU-yNJ"/>
                 <constraint firstItem="aEp-1S-6fI" firstAttribute="top" secondItem="Wxj-rU-CUO" secondAttribute="top" constant="8" id="pFK-D4-qLN"/>
                 <constraint firstAttribute="trailingMargin" secondItem="yrH-FI-OW5" secondAttribute="trailing" id="s6K-bU-dCd"/>
@@ -65,15 +78,17 @@
             </constraints>
             <size key="customSize" width="150" height="150"/>
             <connections>
+                <outlet property="actionButton" destination="aEp-1S-6fI" id="Tmx-ro-UaH"/>
                 <outlet property="activityIndicator" destination="hEd-Hl-xIe" id="rtR-gK-Hc3"/>
+                <outlet property="cancelButton" destination="DZl-Dm-Jt4" id="EXE-vL-mdd"/>
                 <outlet property="pinBoardImageView" destination="IrL-h9-dub" id="RAv-hY-hie"/>
                 <outlet property="pinBoardLabel" destination="yrH-FI-OW5" id="6OA-7T-oZy"/>
-                <outlet property="progreeImageView" destination="akN-hy-2aH" id="JiK-KC-r4G"/>
             </connections>
             <point key="canvasLocation" x="55" y="127"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="cancel" width="100" height="100"/>
         <image name="download" width="96" height="96"/>
     </resources>
 </document>

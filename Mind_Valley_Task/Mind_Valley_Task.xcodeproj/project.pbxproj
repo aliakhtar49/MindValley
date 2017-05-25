@@ -29,6 +29,7 @@
 		3A7BB54E1ED4CCE300796AAD /* ShowMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A7BB54C1ED4CCE300796AAD /* ShowMoreCollectionViewCell.xib */; };
 		3A9E70F71ED5FB00001A8338 /* PinBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9E70F61ED5FB00001A8338 /* PinBoardViewController.m */; };
 		3AAEBE1E1ED3FE1B0072E403 /* CacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AAEBE1D1ED3FE1B0072E403 /* CacheManager.m */; };
+		3ACBFBFE1ED69A6C00DC8EBB /* PendingOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACBFBFD1ED69A6C00DC8EBB /* PendingOperations.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,8 @@
 		3A9E70F61ED5FB00001A8338 /* PinBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinBoardViewController.m; sourceTree = "<group>"; };
 		3AAEBE1C1ED3FE1B0072E403 /* CacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheManager.h; sourceTree = "<group>"; };
 		3AAEBE1D1ED3FE1B0072E403 /* CacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheManager.m; sourceTree = "<group>"; };
+		3ACBFBFC1ED69A6C00DC8EBB /* PendingOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PendingOperations.h; sourceTree = "<group>"; };
+		3ACBFBFD1ED69A6C00DC8EBB /* PendingOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingOperations.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +146,7 @@
 		3A302B971ED2B24B0088F7EE /* Mind_Valley_Task */ = {
 			isa = PBXGroup;
 			children = (
+				3ACBFBFB1ED69A5D00DC8EBB /* Class */,
 				3A9E70F41ED5FAEB001A8338 /* Controller */,
 				3A7BB5461ED4BAE200796AAD /* Handler */,
 				3AAEBE1B1ED3FE060072E403 /* Cache Mechanism */,
@@ -280,6 +284,15 @@
 				3AAEBE1D1ED3FE1B0072E403 /* CacheManager.m */,
 			);
 			name = "Cache Mechanism";
+			sourceTree = "<group>";
+		};
+		3ACBFBFB1ED69A5D00DC8EBB /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				3ACBFBFC1ED69A6C00DC8EBB /* PendingOperations.h */,
+				3ACBFBFD1ED69A6C00DC8EBB /* PendingOperations.m */,
+			);
+			name = Class;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,6 +441,7 @@
 				3A2B07661ED5974700606953 /* BoardHandler.m in Sources */,
 				3A302BDD1ED2DF2D0088F7EE /* PinBoardModel.m in Sources */,
 				3A7BB5491ED4BAFD00796AAD /* PinBoardDefaultHandler.m in Sources */,
+				3ACBFBFE1ED69A6C00DC8EBB /* PendingOperations.m in Sources */,
 				3A302BD51ED2CDED0088F7EE /* NetworkHandler.m in Sources */,
 				3A2B07691ED597A400606953 /* PinBoardOnDemandHandler.m in Sources */,
 				3A2B076D1ED5A8D400606953 /* OnDemandCollectionViewCell.m in Sources */,

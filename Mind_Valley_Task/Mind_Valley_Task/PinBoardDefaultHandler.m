@@ -82,46 +82,47 @@
     
     if(indexPath.row == self.pinBoardWallObjects.count ) {
         ShowMoreCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ShowMoreCollectionViewCell class]) forIndexPath:indexPath];
-       // [cell setBackgroundColor:[UIColor greenColor]];
+        
         [cell animateLoader];
         return cell;
     }
-    
-    PinboardCollectionViewCell* cell  = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([PinboardCollectionViewCell class]) forIndexPath:indexPath];
-    [cell.pinBoardLabel setText:[(PinBoardModel*)[self.pinBoardWallObjects objectAtIndex:indexPath.row] userName]];
-    
-    
-    NSString* imageUrl = [(PinBoardModel*)[self.pinBoardWallObjects objectAtIndex:indexPath.row] userProfileImageUrl] ;
-    
-    if(![self.cacheManager getCachedImageForKey:imageUrl]) {
-        
-        NetworkHandler* networkHandler = [[NetworkHandler alloc] init];
-        [networkHandler loadAsync:imageUrl andSucess:^(NSData *responseData) {
-            
-            
-            UIImage* pinBoardImage = [[UIImage alloc] initWithData:responseData] ;
-            
-            [self.cacheManager setCacheImage:pinBoardImage forKey:imageUrl];
-            [self showImage:pinBoardImage withAnimation:cell.pinBoardImageView];
-
-            
-            
-           // cell.pinBoardImageView.image = pinBoardImage ;
-            
-        } AndFailure:^(NSError *error) {
-            
-        }];
-        
-    }
     else {
+        PinboardCollectionViewCell* cell  = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([PinboardCollectionViewCell class]) forIndexPath:indexPath];
+        [cell.pinBoardLabel setText:[(PinBoardModel*)[self.pinBoardWallObjects objectAtIndex:indexPath.row] userName]];
         
-        [self showImage: [self.cacheManager getCachedImageForKey:imageUrl] withAnimation:cell.pinBoardImageView];
         
+        NSString* imageUrl = [(PinBoardModel*)[self.pinBoardWallObjects objectAtIndex:indexPath.row] userProfileImageUrl] ;
+        
+        if(![self.cacheManager getCachedImageForKey:imageUrl]) {
+            
+            NetworkHandler* networkHandler = [[NetworkHandler alloc] init];
+            [networkHandler loadAsync:imageUrl andSucess:^(NSData *responseData) {
+                
+                
+                UIImage* pinBoardImage = [[UIImage alloc] initWithData:responseData] ;
+                
+                [self.cacheManager setCacheImage:pinBoardImage forKey:imageUrl];
+                [self showImage:pinBoardImage withAnimation:cell.pinBoardImageView];
+                
+                
+                
+                // cell.pinBoardImageView.image = pinBoardImage ;
+                
+            } AndFailure:^(NSError *error) {
+                
+            }];
+            
+        }
+        else {
+            
+            [self showImage: [self.cacheManager getCachedImageForKey:imageUrl] withAnimation:cell.pinBoardImageView];
+            
+        }
+        return cell;
     }
     
     
-    
-    return cell;
+   
 }
 
 
