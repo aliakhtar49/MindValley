@@ -65,7 +65,7 @@
 - (void)main {
     
    
-    [NSThread sleepForTimeInterval:10.0];
+  
     
     
     if(self.cancelled) {

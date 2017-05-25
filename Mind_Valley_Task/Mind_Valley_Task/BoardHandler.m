@@ -48,7 +48,7 @@
     
     
     [self.apiService loadJsonData:REST_API_URL withCurrentCount:currentCount withMaxpageCount:PAGE_COUNT andSucess:^(NSArray *pinboardWallObjectArray) {
-       // [NSThread sleepForTimeInterval:5.0];
+//       [NSThread sleepForTimeInterval:5.0];
         self.showLoader  = NO ;
         if(pinboardWallObjectArray == nil) return ;
         currentCount = currentCount + (int) pinboardWallObjectArray.count ;
