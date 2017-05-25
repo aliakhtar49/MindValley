@@ -27,6 +27,7 @@
 		3A7BB5491ED4BAFD00796AAD /* PinBoardDefaultHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BB5481ED4BAFD00796AAD /* PinBoardDefaultHandler.m */; };
 		3A7BB54D1ED4CCE300796AAD /* ShowMoreCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BB54B1ED4CCE300796AAD /* ShowMoreCollectionViewCell.m */; };
 		3A7BB54E1ED4CCE300796AAD /* ShowMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A7BB54C1ED4CCE300796AAD /* ShowMoreCollectionViewCell.xib */; };
+		3A9247E11ED7874C008DCC36 /* PinBoardTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9247E01ED7874C008DCC36 /* PinBoardTestCase.m */; };
 		3A9E70F71ED5FB00001A8338 /* PinBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9E70F61ED5FB00001A8338 /* PinBoardViewController.m */; };
 		3AAEBE1E1ED3FE1B0072E403 /* CacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AAEBE1D1ED3FE1B0072E403 /* CacheManager.m */; };
 		3ACBFBFE1ED69A6C00DC8EBB /* PendingOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACBFBFD1ED69A6C00DC8EBB /* PendingOperations.m */; };
@@ -88,6 +89,7 @@
 		3A7BB54A1ED4CCE300796AAD /* ShowMoreCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowMoreCollectionViewCell.h; sourceTree = "<group>"; };
 		3A7BB54B1ED4CCE300796AAD /* ShowMoreCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowMoreCollectionViewCell.m; sourceTree = "<group>"; };
 		3A7BB54C1ED4CCE300796AAD /* ShowMoreCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowMoreCollectionViewCell.xib; sourceTree = "<group>"; };
+		3A9247E01ED7874C008DCC36 /* PinBoardTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinBoardTestCase.m; sourceTree = "<group>"; };
 		3A93CE7C1ED548EC00B6D739 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3A93CE7D1ED5496600B6D739 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		3A9E70F51ED5FB00001A8338 /* PinBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinBoardViewController.h; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				3A302BB21ED2B24C0088F7EE /* Mind_Valley_TaskTests.m */,
 				3A302BB41ED2B24C0088F7EE /* Info.plist */,
+				3A9247E01ED7874C008DCC36 /* PinBoardTestCase.m */,
 			);
 			path = Mind_Valley_TaskTests;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A9247E11ED7874C008DCC36 /* PinBoardTestCase.m in Sources */,
 				3A302BB31ED2B24C0088F7EE /* Mind_Valley_TaskTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -54,6 +54,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
      if (self.showLoader) {
+         
          return (int)self.pinBoardWallObjects.count + 1 ;}
      else{
          return (int)self.pinBoardWallObjects.count;
@@ -68,11 +69,10 @@
         
         self.showLoader = YES;
         
-       
-            
-            [self.delegate reloadCollectionView];
-    
+        [self.delegate reloadCollectionView];
+        
         self.apiType = SHOW_MORE ;
+        
         [self fetchPinBoardDetailsFromServer:self.apiType];
     }
     
@@ -81,12 +81,15 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     if(indexPath.row == self.pinBoardWallObjects.count ) {
+        
         ShowMoreCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ShowMoreCollectionViewCell class]) forIndexPath:indexPath];
         
         [cell animateLoader];
         return cell;
+        
     }
     else {
+        
         PinboardCollectionViewCell* cell  = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([PinboardCollectionViewCell class]) forIndexPath:indexPath];
         [cell.pinBoardLabel setText:[(PinBoardModel*)[self.pinBoardWallObjects objectAtIndex:indexPath.row] userName]];
         
@@ -103,10 +106,7 @@
                 
                 [self.cacheManager setCacheImage:pinBoardImage forKey:imageUrl];
                 [self showImage:pinBoardImage withAnimation:cell.pinBoardImageView];
-                
-                
-                
-                // cell.pinBoardImageView.image = pinBoardImage ;
+
                 
             } AndFailure:^(NSError *error) {
                 
@@ -133,7 +133,7 @@
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     if(indexPath.row == self.pinBoardWallObjects.count) {
-        return CGSizeMake(SCREEN_WIDTH, 50.0);
+        return CGSizeMake(SCREEN_WIDTH, SHOW_MORE_CELL_HEIGHT);
     }
     return CGSizeMake(IMAGE_WIDTH, IMAGE_HEIGHT);
     

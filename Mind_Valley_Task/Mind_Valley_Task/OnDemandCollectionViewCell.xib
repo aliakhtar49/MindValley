@@ -28,7 +28,7 @@
                         <state key="normal" image="download"/>
                         <state key="selected" image="cancel"/>
                         <connections>
-                            <action selector="actionButtonTapped:" destination="Wxj-rU-CUO" eventType="touchUpInside" id="Y4U-mC-a11"/>
+                            <action selector="downloadButtonTapped:" destination="Wxj-rU-CUO" eventType="touchUpInside" id="uGx-dP-ecw"/>
                         </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IrL-h9-dub">

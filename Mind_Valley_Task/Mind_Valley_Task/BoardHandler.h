@@ -12,7 +12,8 @@
 
 #import <UIKit/UIKit.h>
 
-#define REST_API_URL @"https://vistajet.000webhostapp.com/sample.json"
+//#define REST_API_URL @"https://vistajet.000webhostapp.com/sample.json"
+#define REST_API_URL @"http://pastebin.com/raw/wgkJgazE"
 
 
 #define CACHE_SIZE_LIMIT 29
@@ -21,6 +22,8 @@
 #define SCREEN_HEIGHT (SCREEN_BOUNDS.size.height)
 #define IMAGE_WIDTH  150.0
 #define IMAGE_HEIGHT 150.0
+#define SHOW_MORE_CELL_HEIGHT 50.0
+
 #define PAGE_COUNT 12
 
 @protocol PinBoardHandlerDelegate ;
@@ -30,27 +33,27 @@
     int totalCount ;
 }
 
-@property(nonatomic,weak) id<PinBoardHandlerDelegate> delegate;
+@property(nonatomic,weak) _Nullable id<PinBoardHandlerDelegate> delegate;
 
 
 @property(nonatomic,assign) enum API_TYPE apiType;
 
-@property(nonatomic,strong) NSMutableArray* pinBoardWallObjects;
-@property (nonatomic,strong) CacheManager* cacheManager;
-@property (nonatomic,strong) APIService* apiService;
+@property(nonatomic,strong)  NSMutableArray* _Nullable  pinBoardWallObjects;
+@property (nonatomic,strong) CacheManager* _Nullable cacheManager;
+@property (nonatomic,strong) APIService* _Nullable apiService;
 @property(nonatomic) BOOL showLoader;
 
 - (void) fetchPinBoardDetailsFromServer :(API_TYPE)apiType ;
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView;
+- (NSInteger)numberOfSectionsInCollectionView:( UICollectionView * _Nullable )collectionView;
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section ;
+- (NSInteger)collectionView:(UICollectionView * _Nullable)collectionView numberOfItemsInSection:(NSInteger)section ;
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath ;
+- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nullable)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nullable)indexPath ;
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath ;
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout * _Nullable)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nullable)indexPath ;
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section ;
 
@@ -58,12 +61,12 @@
        willDisplayCell:(UICollectionViewCell *)cell
     forItemAtIndexPath:(nonnull NSIndexPath *)indexPath;
 
-- (void) showImage:(UIImage*)pinBoardImage withAnimation:(UIImageView*)pinBoardImageView  ;
+- (void) showImage:(nullable UIImage*)pinBoardImage withAnimation:(nullable UIImageView*)pinBoardImageView  ;
 
 - (void) resetValue  ;
 
-- (void) fetchPinBoardDetailsFromServer :(API_TYPE)apiType ;
-- (void) resetValue;
+
+
 
 @end
 
@@ -73,6 +76,6 @@
 - (void) showLoader ;
 - (void) hideLoader ;
 - (void) reloadCollectionView ;
-- (UICollectionView*) getUICollectionView ;
+- (nullable UICollectionView*) getUICollectionView ;
 
 @end

@@ -44,9 +44,9 @@
     [self.delegate cancelButtonTapped:sender];
 }
 
-- (IBAction)actionButtonTapped:(id)sender {
+- (IBAction)downloadButtonTapped:(id)sender {
     
-    [self.delegate actionButtonTapped:sender];
+    [self.delegate downloadButtonTapped:sender];
     
 }
 

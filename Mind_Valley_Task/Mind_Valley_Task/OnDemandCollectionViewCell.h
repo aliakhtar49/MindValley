@@ -24,7 +24,7 @@
 @property(nonatomic,weak) id<OnDemandCollectionViewCellDelegate> delegate;
 - (IBAction)cancelButtonTapped:(id)sender;
 
-- (IBAction)actionButtonTapped:(id)sender;
+- (IBAction)downloadButtonTapped:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButtonTapped;
 
 
@@ -38,7 +38,7 @@
 
 @protocol OnDemandCollectionViewCellDelegate <NSObject>
 
-- (IBAction)actionButtonTapped:(id)sender ;
+- (IBAction)downloadButtonTapped:(id)sender ;
 
 - (IBAction)cancelButtonTapped:(id)sender ;
 

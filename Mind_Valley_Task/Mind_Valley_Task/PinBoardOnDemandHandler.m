@@ -34,6 +34,7 @@
 {
     self = [super init];
     if (self) {
+        
         self.pendingOperations = [[PendingOperations alloc] init];
         self.cacheManager = [[CacheManager alloc] initWithMaxCapacity:CACHE_SIZE_LIMIT];
         currentCount = -1 ;
@@ -87,8 +88,9 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     if(indexPath.row == self.pinBoardWallObjects.count ) {
+        
         ShowMoreCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ShowMoreCollectionViewCell class]) forIndexPath:indexPath];
-       
+        
         [cell animateLoader];
         
         return cell;
@@ -100,32 +102,23 @@
         [cell.pinBoardLabel setText:[(PinBoardModel*)[self.pinBoardWallObjects objectAtIndex:indexPath.row] userName]];
         cell.delegate = self ;
         
-        
         NSString* imageUrl = [(PinBoardModel*)[self.pinBoardWallObjects objectAtIndex:indexPath.row] userProfileImageUrl] ;
         
-       [cell hideDownloadAndCancelButton:[(PinBoardModel*)[self.pinBoardWallObjects objectAtIndex:indexPath.row] imageRecordState]];
+        [cell hideDownloadAndCancelButton:[(PinBoardModel*)[self.pinBoardWallObjects objectAtIndex:indexPath.row] imageRecordState]];
         
-
         if(![self.cacheManager getCachedImageForKey:imageUrl]) {
             
             cell.pinBoardImageView.image = nil;
-            
-            
+   
         }
         else {
             
-            
             cell.pinBoardImageView.image = [self.cacheManager getCachedImageForKey:imageUrl]  ;
-            
-            
-          
-            
+        
         }
         
-         return cell;
+        return cell;
     }
-    
-  
    
 }
 
@@ -139,23 +132,19 @@
     NSIndexPath *indexPath = [[self.delegate getUICollectionView] indexPathForCell:cell];
     
     ImageDownloader* pendingDownload = [self.pendingOperations.downloadsInProgress objectForKey:indexPath];
+    
     [pendingDownload cancel];
     
+    
 }
--(void)actionButtonTapped:(id)sender {
+-(void)downloadButtonTapped:(id)sender {
     
     UIButton *button = (UIButton *) sender;
     
     OnDemandCollectionViewCell *cell = (OnDemandCollectionViewCell *)[[button superview] superview];
-    
-    
-    
-    
-    
+
     NSIndexPath *indexPath = [[self.delegate getUICollectionView] indexPathForCell:cell];
-    
-    
-   
+ 
     PinBoardModel* pinBoardModel =    (PinBoardModel*)[self.pinBoardWallObjects objectAtIndex:indexPath.row];
     
     
@@ -208,7 +197,9 @@
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     if(indexPath.row == self.pinBoardWallObjects.count) {
-        return CGSizeMake(SCREEN_WIDTH, 50.0);
+        
+        return CGSizeMake(SCREEN_WIDTH, SHOW_MORE_CELL_HEIGHT);
+        
     }
     return CGSizeMake(IMAGE_WIDTH, IMAGE_HEIGHT);
     
